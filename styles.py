@@ -87,6 +87,10 @@ html, body, [class*="css"], .stApp {
   color: var(--ink) !important;
 }
 #MainMenu, footer, header { visibility: hidden; }
+/* Hide Streamlit auto-nav */
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"],
+section[data-testid="stSidebar"] ul[data-testid="stSidebarNavItems"],
+div[data-testid="stSidebarNavItems"] { display: none !important; }
 .block-container { padding: 2.5rem 3rem 5rem 3rem !important; max-width: 980px; }
 
 /* ── Streamlit native elements ── */
