@@ -129,6 +129,10 @@ section[data-testid="stSidebar"] {
   background: var(--sidebar-bg) !important;
   border-right: 3px solid var(--accent) !important;
 }
+  position: fixed !important;
+  top: 1.2rem !important;
+  left: 1rem !important;
+  z-index: 999 !important;
 section[data-testid="stSidebar"] * { color: var(--sidebar-fg) !important; }
 section[data-testid="stSidebar"] a:hover { color: var(--accent) !important; }
 section[data-testid="stSidebar"] hr { border-color: #2e2c28 !important; }
