@@ -115,6 +115,16 @@ hr { border-color: var(--border) !important; }
 /* ══════════════════════════════════════════════
    SIDEBAR
 ══════════════════════════════════════════════ */
+/* Make Streamlit's hamburger menu button visible and prominent */
+header[data-testid="stHeader"] {
+  visibility: visible !important;
+}
+
+/* Ensure the toolbar with menu button is visible */
+div[data-testid="stToolbar"] {
+  visibility: visible !important;
+  display: flex !important;
+}
 section[data-testid="stSidebar"] {
   background: var(--sidebar-bg) !important;
   border-right: 3px solid var(--accent) !important;
