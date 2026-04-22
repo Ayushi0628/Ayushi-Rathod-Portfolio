@@ -11,26 +11,26 @@ st.markdown('<div class="eyebrow">✦ Curriculum Vitae</div>', unsafe_allow_html
 st.markdown('<h1 class="page-title">My <span>Resume</span>.</h1>', unsafe_allow_html=True)
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 
-st.markdown("""
-<div class="strip">
-  <h3>📎 Download a PDF copy</h3>
-  <p>
-    Add <code style="background:rgba(255,255,255,0.1);padding:0.1rem 0.4rem;border-radius:4px;">Ayushi_Rathod_Resume.pdf</code>
-    to the root of your project folder, then uncomment the download button block below in Resume.py.
-    Recruiters love a one-click download!
-  </p>
-</div>
-""", unsafe_allow_html=True)
+# st.markdown("""
+# <div class="strip">
+#   <h3>📎 Download a PDF copy</h3>
+#   <p>
+#     Add <code style="background:rgba(255,255,255,0.1);padding:0.1rem 0.4rem;border-radius:4px;">Ayushi_Rathod_Resume.pdf</code>
+#     to the root of your project folder, then uncomment the download button block below in Resume.py.
+#     Recruiters love a one-click download!
+#   </p>
+# </div>
+# """, unsafe_allow_html=True)
 
 # ── Uncomment once PDF is added to project root:
-# with open("Ayushi_Rathod_Resume.pdf", "rb") as f:
-#     st.download_button(
-#         label="⬇️  Download Resume (PDF)",
-#         data=f,
-#         file_name="Ayushi_Rathod_Resume.pdf",
-#         mime="application/pdf",
-#         use_container_width=True,
-#     )
+with open("Ayushi_Rathod_Resume.pdf", "rb") as f:
+    st.download_button(
+        label="⬇️  Download Resume (PDF)",
+        data=f,
+        file_name="Ayushi_Rathod_Resume.pdf",
+        mime="application/pdf",
+        use_container_width=True,
+    )
 
 st.markdown('<div class="sh">💼 Professional <span>Experience</span></div>', unsafe_allow_html=True)
 st.markdown("""
