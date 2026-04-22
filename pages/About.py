@@ -57,16 +57,19 @@ with col_quick:
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 st.markdown('<div class="sh">🎓 <span>Education</span></div>', unsafe_allow_html=True)
 
-for school, degree, period, detail in [
+for school, degree, period, detail, highlights in [
     ("Northeastern University – Toronto", "Master of Professional Studies in Analytics",
      "Sep 2024 – Mar 2026 ✓ Completed",
-     "Machine Learning · AI · Statistical Modeling · Data Visualization · Business Intelligence"),
+     "Advanced analytics program combining machine learning, data science, and business intelligence. Completed intensive coursework in statistical modeling, predictive analytics, and modern data engineering practices.",
+     ["Machine Learning & AI", "Statistical Modeling & Inference", "Data Visualization & Storytelling", "Business Intelligence & Analytics", "Advanced Python & SQL", "Big Data Technologies"]),
     ("The Maharaja Sayajirao University of Baroda", "Master of Computer Applications (MCA)",
      "Jul 2021 – May 2023",
-     "Advanced database systems, software engineering, data structures, algorithms, and full-stack development."),
+     "Comprehensive graduate program in computer science covering modern software development, database management, and computational theory. Hands-on experience building scalable applications and enterprise systems.",
+     ["Advanced Database Systems (Oracle, SQL Server)", "Software Engineering & Design Patterns", "Data Structures & Algorithms", "Full-Stack Web Development", "System Design & Architecture", "Networking & Security"]),
     ("The Maharaja Sayajirao University of Baroda", "Bachelor of Science in Mathematics",
      "Jun 2018 – May 2021",
-     "Statistics, calculus, linear algebra, probability theory, and numerical methods."),
+     "Rigorous foundation in pure and applied mathematics with focus on quantitative reasoning. Developed strong analytical and problem-solving skills applicable to data science and analytics.",
+     ["Statistics & Probability Theory", "Calculus & Real Analysis", "Linear Algebra & Matrix Theory", "Differential Equations", "Numerical Methods", "Mathematical Modeling"]),
 ]:
     st.markdown(f"""
     <div class="card">
@@ -74,8 +77,11 @@ for school, degree, period, detail in [
       <div class="card-sub">{degree}</div>
       <div class="card-meta">📅 {period}</div>
       <p>{detail}</p>
-    </div>
+      <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.4rem;">
     """, unsafe_allow_html=True)
+    for highlight in highlights:
+        st.markdown(f'<span class="tag" style="font-size:0.8rem;">📌 {highlight}</span>', unsafe_allow_html=True)
+    st.markdown('</div></div>', unsafe_allow_html=True)
 
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 st.markdown('<div class="sh">💼 Professional <span>Experience</span></div>', unsafe_allow_html=True)

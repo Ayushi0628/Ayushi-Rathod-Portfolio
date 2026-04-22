@@ -574,6 +574,48 @@ section[data-testid="stSidebar"] hr { border-color: #2e2c28 !important; }
 
 /* ── Divider ── */
 .divider { border: none; border-top: 1.5px solid var(--border); margin: 2rem 0; }
+
+/* ══════════════════════════════════════════════
+   SIDEBAR TOGGLE / HAMBURGER MENU
+══════════════════════════════════════════════ */
+/* Make Streamlit's hamburger menu button visible and prominent */
+header[data-testid="stHeader"] {
+  visibility: visible !important;
+}
+
+/* Ensure the toolbar with menu button is visible */
+div[data-testid="stToolbar"] {
+  visibility: visible !important;
+  display: flex !important;
+}
+
+/* Style the hamburger menu button */
+button[data-testid="stSidebarCollapseButton"] {
+  background: var(--sidebar-bg) !important;
+  border: 2px solid var(--accent) !important;
+  color: var(--sidebar-fg) !important;
+  padding: 0.5rem 0.7rem !important;
+  border-radius: 8px !important;
+  font-size: 1.2rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin-left: 1rem !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+button[data-testid="stSidebarCollapseButton"]:hover {
+  background: var(--accent) !important;
+  transform: scale(1.05);
+}
+
+/* For smaller screens, ensure the menu button is accessible */
+@media (max-width: 768px) {
+  button[data-testid="stSidebarCollapseButton"] {
+    padding: 0.6rem 0.9rem !important;
+    font-size: 1.3rem !important;
+  }
+}
 </style>
 """, unsafe_allow_html=True)
 
