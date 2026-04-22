@@ -32,9 +32,9 @@ def inject_css():
   --tag-bg:    #e8f0fe;
   --tag-fg:    #1a56db;
   --tag-border:#c3d3fd;
-  --strip-bg:  #1a1917;
-  --strip-fg:  #f7f6f2;
-  --strip-sub: #b0aca6;
+  --strip-bg:  #f7f6f2;
+  --strip-fg:  #1a1917;
+  --strip-sub: #3d3b38;
 }
 
 /* ══════════════════════════════════════════════
@@ -578,18 +578,7 @@ section[data-testid="stSidebar"] hr { border-color: #2e2c28 !important; }
 /* ══════════════════════════════════════════════
    SIDEBAR TOGGLE / HAMBURGER MENU
 ══════════════════════════════════════════════ */
-/* Make Streamlit's hamburger menu button visible and prominent */
-header[data-testid="stHeader"] {
-  visibility: visible !important;
-}
-
-/* Ensure the toolbar with menu button is visible */
-div[data-testid="stToolbar"] {
-  visibility: visible !important;
-  display: flex !important;
-}
-
-/* Style the hamburger menu button */
+/* Style only the hamburger button without showing the header */
 button[data-testid="stSidebarCollapseButton"] {
   background: var(--sidebar-bg) !important;
   border: 2px solid var(--accent) !important;
@@ -599,22 +588,15 @@ button[data-testid="stSidebarCollapseButton"] {
   font-size: 1.2rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  margin-left: 1rem !important;
-  visibility: visible !important;
-  display: block !important;
+  position: fixed !important;
+  top: 1.2rem !important;
+  left: 1rem !important;
+  z-index: 999 !important;
 }
 
 button[data-testid="stSidebarCollapseButton"]:hover {
   background: var(--accent) !important;
   transform: scale(1.05);
-}
-
-/* For smaller screens, ensure the menu button is accessible */
-@media (max-width: 768px) {
-  button[data-testid="stSidebarCollapseButton"] {
-    padding: 0.6rem 0.9rem !important;
-    font-size: 1.3rem !important;
-  }
 }
 </style>
 """, unsafe_allow_html=True)

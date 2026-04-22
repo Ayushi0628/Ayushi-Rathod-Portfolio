@@ -71,6 +71,7 @@ for school, degree, period, detail, highlights in [
      "Rigorous foundation in pure and applied mathematics with focus on quantitative reasoning. Developed strong analytical and problem-solving skills applicable to data science and analytics.",
      ["Statistics & Probability Theory", "Calculus & Real Analysis", "Linear Algebra & Matrix Theory", "Differential Equations", "Numerical Methods", "Mathematical Modeling"]),
 ]:
+    highlights_html = "".join([f'<span class="tag" style="font-size:0.8rem;">📌 {h}</span>' for h in highlights])
     st.markdown(f"""
     <div class="card">
       <div class="card-title">{school}</div>
@@ -78,10 +79,10 @@ for school, degree, period, detail, highlights in [
       <div class="card-meta">📅 {period}</div>
       <p>{detail}</p>
       <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.4rem;">
+        {highlights_html}
+      </div>
+    </div>
     """, unsafe_allow_html=True)
-    for highlight in highlights:
-        st.markdown(f'<span class="tag" style="font-size:0.8rem;">📌 {highlight}</span>', unsafe_allow_html=True)
-    st.markdown('</div></div>', unsafe_allow_html=True)
 
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 st.markdown('<div class="sh">💼 Professional <span>Experience</span></div>', unsafe_allow_html=True)
