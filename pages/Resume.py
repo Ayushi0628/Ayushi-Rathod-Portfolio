@@ -59,7 +59,7 @@ with open("Ayushi_Rathod_Resume.pdf", "rb") as f:
      st.download_button(
          label="⬇️  Download Resume (PDF)",
          data=f,
-         file_name="Ayushi_Rathod__Resume.pdf",
+         file_name="Ayushi_Rathod_Resume.pdf",
          mime="application/pdf"
      )
 

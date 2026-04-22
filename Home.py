@@ -304,7 +304,7 @@ st.markdown("""
 <div class="highlight-strip">
   <h3>🎓 Currently at Northeastern University – Toronto</h3>
   <p>
-    Pursuing a Master of Professional Studies in Analytics (Sep 2024 – Mar 2026),
+    Completed a Master of Professional Studies in Analytics (Sep 2024 – Mar 2026),
     with coursework spanning Machine Learning, AI, Statistical Modeling, and Business Intelligence.
     Actively seeking co-op &amp; full-time data roles in the Greater Toronto Area.
   </p>

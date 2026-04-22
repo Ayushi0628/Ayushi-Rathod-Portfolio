@@ -61,7 +61,7 @@ with col_bio:
       After 1.5 years working at <strong>Confidosoft Solutions</strong> in India — where I built
       end-to-end BI workflows, automated reporting pipelines, and delivered ML-powered insights —
       I relocated to Toronto to deepen my analytical toolkit at <strong>Northeastern University</strong>,
-      where I'm completing an MPS in Analytics.
+      where I completed my degree in MPS in Analytics.
     </p>
     <br/>
     <p class="bio-text">
