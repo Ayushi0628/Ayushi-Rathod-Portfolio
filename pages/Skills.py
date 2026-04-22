@@ -11,19 +11,19 @@ st.markdown('<div class="eyebrow">✦ Technical Expertise</div>', unsafe_allow_h
 st.markdown('<h1 class="page-title">Tools that <span>get results</span>.</h1>', unsafe_allow_html=True)
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 
-# ── Proficiency bars
+# ── Proficiency bars ──────────────────────────────────────────────────────────
 st.markdown('<div class="sh">Core <span>Proficiencies</span></div>', unsafe_allow_html=True)
 
 skills = [
     ("Power BI  (DAX, Data Modelling)", 92),
-    ("Python  (pandas, scikit-learn)", 90),
-    ("SQL  (MySQL, PostgreSQL, BigQuery)", 88),
-    ("Statistical Analysis", 84),
-    ("Machine Learning & SHAP", 82),
-    ("Excel / VBA / Power Query", 85),
-    ("Tableau", 78),
-    ("ETL Pipelines & Data Engineering", 76),
-    ("Azure / AWS / Git", 68),
+    ("Python  (pandas, scikit-learn)",  90),
+    ("SQL  (MySQL · PostgreSQL · BigQuery)", 88),
+    ("Excel / VBA / Power Query",       85),
+    ("Statistical Analysis",            84),
+    ("Machine Learning & SHAP",         82),
+    ("Tableau",                         78),
+    ("ETL Pipelines & Data Engineering",76),
+    ("Azure / AWS / Git",               68),
 ]
 
 col_l, col_r = st.columns(2, gap="large")
@@ -41,38 +41,51 @@ for i, (name, pct) in enumerate(skills):
 
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 
-# ── Skill categories
+# ── Skill categories ──────────────────────────────────────────────────────────
 st.markdown('<div class="sh">Skill <span>Categories</span></div>', unsafe_allow_html=True)
 
 groups = [
-    ("📊 Analytics & Reporting",  ["Data Processing","KPI Reporting","Trend Analysis","Data Integrity","Stakeholder Insights","Ad-hoc Analysis"]),
-    ("🗄️ Data Management",        ["ETL Pipelines","Data Cleaning","SQL (MySQL · PostgreSQL)","BigQuery","Data Validation","ERD Design"]),
-    ("📈 Visualization",           ["Power BI","DAX","Tableau","Excel Dashboards","Interactive Reporting","SHAP Plots"]),
-    ("🧮 Statistics & ML",         ["Regression","Hypothesis Testing","Forecasting","XGBoost","Random Forest","SMOTE","SHAP"]),
-    ("⚙️ Automation & Cloud",      ["Power Automate","Power Apps","Git / GitHub","Azure","AWS","Jupyter Notebooks"]),
-    ("💻 Programming",             ["Python","R","SQL","VBA","Power Query M","pandas","scikit-learn"]),
+    ("📊 Analytics & Reporting",
+     ["Data Processing", "KPI Reporting", "Trend Analysis", "Data Integrity", "Stakeholder Insights", "Ad-hoc Analysis"]),
+    ("🗄️ Data Management",
+     ["ETL Pipelines", "Data Cleaning", "SQL", "MySQL", "PostgreSQL", "BigQuery", "Data Validation", "ERD Design"]),
+    ("📈 Visualization",
+     ["Power BI", "DAX", "Tableau", "Excel Dashboards", "SHAP Plots", "Interactive Reporting"]),
+    ("🧮 Statistics & ML",
+     ["Regression", "Hypothesis Testing", "Forecasting", "XGBoost", "Random Forest", "SMOTE", "SHAP"]),
+    ("⚙️ Automation & Cloud",
+     ["Power Automate", "Power Apps", "Git", "GitHub", "Azure", "AWS", "Jupyter"]),
+    ("💻 Programming",
+     ["Python", "R", "SQL", "VBA", "Power Query M", "pandas", "scikit-learn"]),
 ]
 
 c1, c2 = st.columns(2, gap="large")
 for i, (title, tags) in enumerate(groups):
     with (c1 if i % 2 == 0 else c2):
-        tag_html = "".join(f'<span class="tag" style="margin:0.18rem;">{t}</span>' for t in tags)
+        # Each tag is white-space:nowrap via CSS — no mid-word breaks
+        tag_html = "".join(
+            f'<span class="tag">{t}</span>' for t in tags
+        )
         st.markdown(f"""
         <div class="skill-group">
           <div class="skill-group-title">{title}</div>
-          <div>{tag_html}</div>
+          <div class="skill-tags">{tag_html}</div>
         </div>
         """, unsafe_allow_html=True)
 
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 
-# ── Tools
+# ── Tools & platforms ─────────────────────────────────────────────────────────
 st.markdown('<div class="sh">🛠️ Tools &amp; <span>Platforms</span></div>', unsafe_allow_html=True)
+
 tools = [
-    ("📊","Power BI"),("🐍","Python"),("🗃️","PostgreSQL"),("📋","Excel"),
-    ("☁️","BigQuery"),("🔷","Azure"),("📦","AWS"),("📉","Tableau"),
-    ("🤖","scikit-learn"),("🌿","Git"),("⚡","Power Automate"),("🧪","Jupyter"),
-    ("🔢","R"),("🛢️","MySQL"),("📐","VBA"),
+    ("📊","Power BI"), ("🐍","Python"),    ("🗃️","PostgreSQL"), ("📋","Excel"),
+    ("☁️","BigQuery"), ("🔷","Azure"),     ("📦","AWS"),         ("📉","Tableau"),
+    ("🤖","scikit-learn"), ("🌿","Git"),   ("⚡","Power Automate"), ("🧪","Jupyter"),
+    ("🔢","R"),         ("🛢️","MySQL"),    ("📐","VBA"),          ("🔄","Power Query"),
 ]
-html = "".join(f'<span class="tool-badge"><span>{i}</span><span>{n}</span></span>' for i, n in tools)
+html = "".join(
+    f'<span class="tool-badge"><span>{ico}</span><span>{name}</span></span>'
+    for ico, name in tools
+)
 st.markdown(f'<div style="display:flex;flex-wrap:wrap;">{html}</div>', unsafe_allow_html=True)
