@@ -46,22 +46,22 @@ st.markdown('<div class="page-eyebrow">Curriculum Vitae</div>', unsafe_allow_htm
 st.markdown('<h1 class="page-title">My <span>Resume</span>.</h1>', unsafe_allow_html=True)
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)
 
-# ── Download tip ──────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="download-note">
-  📎 Want a PDF copy? Add your resume file to the project folder and enable a download button
-  below using <strong>st.download_button()</strong>. Recruiters love a one-click download!
-</div>
-""", unsafe_allow_html=True)
+# # ── Download tip ──────────────────────────────────────────────────────────────
+# st.markdown("""
+# <div class="download-note">
+#   📎 Want a PDF copy? Add your resume file to the project folder and enable a download button
+#   below using <strong>st.download_button()</strong>. Recruiters love a one-click download!
+# </div>
+# """, unsafe_allow_html=True)
 
 # Uncomment this block once you add your PDF to the project:
-# with open("Ayushi_Rathod_Resume.pdf", "rb") as f:
-#     st.download_button(
-#         label="⬇️  Download Resume (PDF)",
-#         data=f,
-#         file_name="Ayushi_Rathod_Resume.pdf",
-#         mime="application/pdf"
-#     )
+with open("Ayushi_Rathod_Resume.pdf", "rb") as f:
+     st.download_button(
+         label="⬇️  Download Resume (PDF)",
+         data=f,
+         file_name="Ayushi_Rathod__Resume.pdf",
+         mime="application/pdf"
+     )
 
 # ── Experience ────────────────────────────────────────────────────────────────
 st.markdown('<div class="section-heading">💼 Professional <span>Experience</span></div>', unsafe_allow_html=True)
