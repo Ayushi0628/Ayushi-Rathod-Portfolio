@@ -95,7 +95,7 @@ with col_right:
         """, unsafe_allow_html=True)
 
     st.markdown('<div class="sh" style="margin-top:1.5rem;">Connect <span>Online</span></div>', unsafe_allow_html=True)
-    st.link_button("🔗 LinkedIn Profile", "https://linkedin.com/in/ayushirathod", use_container_width=True)
+    st.link_button("🔗 LinkedIn Profile", "www.linkedin.com/in/ayushi-rathod-data-analyst", use_container_width=True)
     st.link_button("🐙 GitHub Profile",   "https://github.com/Ayushi0628",     use_container_width=True)
 
 st.markdown('<hr class="divider"/>', unsafe_allow_html=True)

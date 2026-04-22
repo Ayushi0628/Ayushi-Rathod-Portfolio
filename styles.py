@@ -596,5 +596,5 @@ def sidebar(active="home"):
         st.page_link("pages/Contact.py",  label="✉️ Contact")
         st.markdown("---")
         st.markdown(
-            '[LinkedIn ↗](https://linkedin.com/in/ayushirathod)   [GitHub ↗](https://github.com/Ayushi0628)'
+            '[LinkedIn ↗](www.linkedin.com/in/ayushi-rathod-data-analyst)   [GitHub ↗](https://github.com/Ayushi0628)'
         )
