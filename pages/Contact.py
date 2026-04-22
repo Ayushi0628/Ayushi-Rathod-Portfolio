@@ -1,6 +1,51 @@
 import streamlit as st
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 st.set_page_config(page_title="Contact | Ayushi Rathod", page_icon="✉️", layout="wide")
+
+def send_email(sender_name, sender_email, subject, message):
+    """Send contact form email via Gmail SMTP."""
+    try:
+        # ── Pull credentials from Streamlit secrets ──
+        gmail_user     = st.secrets["GMAIL_ADDRESS"]   # your Gmail
+        gmail_password = st.secrets["GMAIL_APP_PASSWORD"]  # 16-char App Password
+
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = f"[Portfolio Contact] {subject} — from {sender_name}"
+        msg["From"]    = gmail_user
+        msg["To"]      = gmail_user   # email arrives in YOUR inbox
+        msg["Reply-To"] = sender_email
+
+        html_body = f"""
+        <html><body style="font-family:sans-serif;color:#0d0d0d;max-width:600px;">
+          <div style="background:#c8522a;padding:1rem 1.5rem;border-radius:8px 8px 0 0;">
+            <h2 style="color:#fff;margin:0;">New Portfolio Message</h2>
+          </div>
+          <div style="background:#f5f2ec;padding:1.5rem;border-radius:0 0 8px 8px;border:1px solid #ddd9d2;">
+            <p><strong>Name:</strong> {sender_name}</p>
+            <p><strong>Email:</strong> <a href="mailto:{sender_email}">{sender_email}</a></p>
+            <p><strong>Subject:</strong> {subject}</p>
+            <hr style="border:none;border-top:1px solid #ddd9d2;"/>
+            <p><strong>Message:</strong></p>
+            <p style="line-height:1.7;color:#3a3632;">{message.replace(chr(10), '<br/>')}</p>
+          </div>
+          <p style="font-size:0.75rem;color:#6b6660;margin-top:1rem;">
+            Sent via ayushi-rathod-portfolio.streamlit.app
+          </p>
+        </body></html>
+        """
+
+        msg.attach(MIMEText(html_body, "html"))
+
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(gmail_user, gmail_password)
+            server.sendmail(gmail_user, gmail_user, msg.as_string())
+
+        return True, None
+    except Exception as e:
+        return False, str(e)
 
 st.markdown("""
 <style>
@@ -64,11 +109,19 @@ with col_left:
         submitted = st.form_submit_button("Send Message →", use_container_width=True)
 
     if submitted:
-        if name and email and msg:
-            st.success(f"✅ Thanks {name}! Your message has been received. I'll be in touch soon.")
-            st.balloons()
-        else:
+        if not name or not email or not msg:
             st.error("Please fill in all required fields.")
+        elif "@" not in email or "." not in email:
+            st.error("Please enter a valid email address.")
+        else:
+            with st.spinner("Sending your message..."):
+                success, error = send_email(name, email, subj, msg)
+            if success:
+                st.success(f"✅ Thanks {name}! Your message has been sent. I will reply to {email} within 24 hours.")
+                st.balloons()
+            else:
+                st.error("⚠️ Message could not be sent. Please email me directly at ayushirathod74@gmail.com")
+                # st.exception(error)  # uncomment temporarily to debug
 
 with col_right:
     st.markdown('<div class="section-heading">Contact <span>Info</span></div>', unsafe_allow_html=True)
